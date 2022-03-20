@@ -3,10 +3,13 @@ import "./App.css";
 
 function App() {
   const [todo, setTodo] = useState("");
+  const [undoneList, setUndoneList] = useState([]);
+  const [doneList, setDoneList] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(todo);
+    setUndoneList([todo]);
     setTodo("");
   };
 
@@ -28,8 +31,10 @@ function App() {
 
       <div className="todo-item">
         <ul className="undone-todo">
-          <p>未完了</p>
-          <li>1</li>
+          <p>やる事リスト</p>
+          {undoneList.map((undone) => (
+            <li>{undone}</li>
+          ))}
         </ul>
 
         <ul className="done-todo">
