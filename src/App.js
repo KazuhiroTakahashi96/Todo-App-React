@@ -9,7 +9,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(todo);
-    setUndoneList([todo]);
+    setUndoneList([todo, ...undoneList]);
     setTodo("");
   };
 
@@ -22,24 +22,54 @@ function App() {
           placeholder="やる事を入力"
           value={todo}
           onChange={(e) => {
-            console.log(e.target.value);
+            // console.log(e.target.value);
             setTodo(e.target.value);
           }}
         />
-        <button className="btn">追加</button>
+        <button className="add-btn">追加</button>
       </form>
 
       <div className="todo-item">
         <ul className="undone-todo">
           <p>やる事リスト</p>
           {undoneList.map((undone) => (
-            <li>{undone}</li>
+            <li>
+              {undone}
+              <button
+                className="done-btn"
+                onClick={() => {
+                  setDoneList([undone, ...doneList]);
+                }}
+              >
+                完了
+              </button>
+            </li>
           ))}
         </ul>
 
         <ul className="done-todo">
-          <p>完了</p>
-          <li>1</li>
+          <p>完了したタスク</p>
+          {doneList.map((done) => (
+            <li>
+              {done}
+              <button
+                className="undone-btn"
+                onClick={() => {
+                  // setDoneList([undone])
+                }}
+              >
+                戻す
+              </button>
+              <button
+                className="delete-btn"
+                onClick={() => {
+                  // setDoneList([undone])
+                }}
+              >
+                削除
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
     </div>
