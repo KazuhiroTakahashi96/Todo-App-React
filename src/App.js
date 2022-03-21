@@ -13,6 +13,8 @@ function App() {
     setTodo("");
   };
 
+  // 配列操作
+  // https://www.google.com/search?q=js+%E9%85%8D%E5%88%97%E6%93%8D%E4%BD%9C&oq=js+%E9%85%8D%E5%88%97%E6%93%8D%E4%BD%9C&aqs=chrome..69i57.7225j0j7&sourceid=chrome&ie=UTF-8
   return (
     <div className="App">
       <h3>TODO APP</h3>
@@ -55,19 +57,19 @@ function App() {
               <button
                 className="undone-btn"
                 onClick={() => {
-                  // setDoneList([undone])
+                  setUndoneList([]);
                 }}
               >
                 戻す
               </button>
-              <button
+              {/* <button
                 className="delete-btn"
                 onClick={() => {
                   // setDoneList([undone])
                 }}
               >
                 削除
-              </button>
+              </button> */}
             </li>
           ))}
         </ul>
