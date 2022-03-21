@@ -40,6 +40,7 @@ function App() {
               <button
                 className="done-btn"
                 onClick={() => {
+                  setUndoneList(undoneList.filter((item) => item !== undone));
                   setDoneList([undone, ...doneList]);
                 }}
               >
@@ -57,19 +58,20 @@ function App() {
               <button
                 className="undone-btn"
                 onClick={() => {
-                  setUndoneList([]);
+                  setUndoneList([done, ...undoneList]);
+                  setDoneList(doneList.filter((item) => item !== done));
                 }}
               >
                 戻す
               </button>
-              {/* <button
+              <button
                 className="delete-btn"
                 onClick={() => {
-                  // setDoneList([undone])
+                  setDoneList(doneList.filter((item) => item !== done));
                 }}
               >
                 削除
-              </button> */}
+              </button>
             </li>
           ))}
         </ul>
