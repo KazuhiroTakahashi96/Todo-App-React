@@ -36,7 +36,7 @@ function App() {
           <p>やる事リスト</p>
           {undoneList.map((undone) => (
             <li>
-              {undone}
+              <p>{undone}</p>
               <button
                 className="done-btn"
                 onClick={() => {
@@ -54,7 +54,7 @@ function App() {
           <p>完了したタスク</p>
           {doneList.map((done) => (
             <li>
-              {done}
+              <p>{done}</p>
               <button
                 className="undone-btn"
                 onClick={() => {
